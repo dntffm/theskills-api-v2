@@ -33,7 +33,7 @@ class AuthController extends Controller
     	{
     		return response()->json(["message" => "Registrasi Berhasil"],200);
     	}
-    	return response()->json(['message' => 'Registrasi Gagal, coba lagi'],500);
+    	return response()->json(['message' => 'Registrasi Gagal, coba lagi'],400);
         
     }
 }
