@@ -13,6 +13,7 @@
 
 $router->group(['prefix' => 'api/v2'],function() use ($router) {
 	$router->post('/register','AuthController@register');
+	$router->post('/login','AuthController@login');
 	$router->get('/tes',function(){
 		return 'asi';
 	});
