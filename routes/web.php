@@ -14,8 +14,11 @@
 $router->group(['prefix' => 'api/v2'],function() use ($router) {
 	$router->post('/register','AuthController@register');
 	$router->post('/login','AuthController@login');
-	$router->get('/tes',function(){
-		return 'asi';
-	});
+	$router->post('/logout','AuthController@logout');
+	$router->post('/course/title/create','CourseController@createTitles');
+	$router->post('/course/main/create','CourseController@createCourse');
+	$router->get('/course/{title}','CourseController@getCourseByTitle');
+	$router->post('/subcourse/create','SubcourseController@createSubcourse');
+	$router->get('/subcourse/{course}','SubcourseController@getSubcourseByCourse');
 });
 
