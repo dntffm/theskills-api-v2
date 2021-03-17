@@ -20,5 +20,9 @@ $router->group(['prefix' => 'api/v2'],function() use ($router) {
 	$router->get('/course/{title}','CourseController@getCourseByTitle');
 	$router->post('/subcourse/create','SubcourseController@createSubcourse');
 	$router->get('/subcourse/{course}','SubcourseController@getSubcourseByCourse');
+	$router->post('/minicourse','MinicourseController@store');
+	$router->get('/minicourse/{courseid}','MinicourseController@showByCourse');
+	$router->get('/minicourse/id/{id}','MinicourseController@showById');
+	$router->get('/storage','StorageController@index');
 });
 
