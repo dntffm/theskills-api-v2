@@ -22,7 +22,10 @@ class AuthController extends Controller
     		'password' => 'required',
     		'username' => 'required',
     		'age' => 'required',
-    		'phone_number' => 'required'
+    		'phone_number' => 'required',
+			'school' => 'required',
+			'child_name' => 'required',
+			'grade' => 'required'
     	]);
     	$user = new User;
 
@@ -32,7 +35,10 @@ class AuthController extends Controller
     	$user->password = app('hash')->make($request->password);
     	$user->phone_number = $request->phone_number;
     	$user->age = $request->age;
-
+		$user->child_name = $request->child_name;
+		$user->school = $request->school;
+		$user->grade = $request->school;
+		
     	if($user->save())
     	{
     		return response()->json(["message" => "Registrasi Berhasil"],200);
