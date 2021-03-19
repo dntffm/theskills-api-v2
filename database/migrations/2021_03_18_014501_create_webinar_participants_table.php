@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateNameUsersTable extends Migration
+class CreateWebinarParticipantsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class UpdateNameUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('child_name',100);
-            $table->string('school',100);
-            $table->string('grade',10);
+        Schema::create('webinar_participants', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('webinar_id');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +28,6 @@ class UpdateNameUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('webinar_participants');
     }
 }

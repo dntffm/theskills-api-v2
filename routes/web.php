@@ -23,6 +23,8 @@ $router->group(['prefix' => 'api/v2'],function() use ($router) {
 	$router->post('/minicourse','MinicourseController@store');
 	$router->get('/minicourse/{courseid}','MinicourseController@showByCourse');
 	$router->get('/minicourse/id/{id}','MinicourseController@showById');
+	$router->get('/webinar','WebinarController@getAll');
+	$router->post('/webinar','WebinarController@store');
 	$router->get('/storage','StorageController@index');
 });
 

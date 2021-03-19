@@ -37,7 +37,7 @@ class AuthController extends Controller
     	$user->age = $request->age;
 		$user->child_name = $request->child_name;
 		$user->school = $request->school;
-		$user->grade = $request->school;
+		$user->grade = $request->grade;
 		
     	if($user->save())
     	{

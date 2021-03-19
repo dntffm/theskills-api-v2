@@ -15,6 +15,7 @@ return array(
     'App\\Http\\Controllers\\CourseController' => $baseDir . '/app/Http/Controllers/CourseController.php',
     'App\\Http\\Controllers\\ExampleController' => $baseDir . '/app/Http/Controllers/ExampleController.php',
     'App\\Http\\Controllers\\MinicourseController' => $baseDir . '/app/Http/Controllers/MinicourseController.php',
+    'App\\Http\\Controllers\\StorageController' => $baseDir . '/app/Http/Controllers/StorageController.php',
     'App\\Http\\Controllers\\SubcourseController' => $baseDir . '/app/Http/Controllers/SubcourseController.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\ExampleMiddleware' => $baseDir . '/app/Http/Middleware/ExampleMiddleware.php',
