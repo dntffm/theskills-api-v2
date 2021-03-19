@@ -35,4 +35,14 @@ class WebinarController extends Controller
         }
         return response()->json(['message' => 'webinar gagal disimpan'],00);
     }
+
+    public function registerWebinar(Request $request)
+    {
+        $this->validate($request,[
+            'user_id' => 'required',
+            'webinar_id' => 'required'
+        ]);
+
+        
+    }
 }
