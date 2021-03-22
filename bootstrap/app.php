@@ -22,7 +22,7 @@ date_default_timezone_set(env('APP_TIMEZONE', 'UTC'));
 $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
-$app->singleton('filesystem', function ($app) { return $app->loadComponent('filesystems', 'Illuminate\Filesystem\FilesystemServiceProvider', 'filesystem'); });
+//$app->singleton('filesystem', function ($app) { return $app->loadComponent('filesystems', 'Illuminate\Filesystem\FilesystemServiceProvider', 'filesystem'); });
 $app->withFacades();
 
 $app->withEloquent();
