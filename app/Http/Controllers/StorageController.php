@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\Response;
 class StorageController extends Controller
 {
     /**
@@ -16,9 +17,10 @@ class StorageController extends Controller
 
     //
 
-    public function index()
+    public function index($filename)
     {
-        $file = storage_path('app/public/abstraksi.png');
+  
+        $file = storage_path('app/public/'. str_replace("_",".",$filename));
         return File::get($file);
     }
 }

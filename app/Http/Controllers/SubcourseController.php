@@ -42,6 +42,6 @@ class SubcourseController extends Controller
 
     public function getSubcourseByCourse($course)
     {
-        return Course::find($course)->with('subcourses')->first();
+        return Course::where('id',$course)->with('subcourses')->first();
     }
 }
