@@ -45,3 +45,4 @@ class SubcourseController extends Controller
         return Course::where('id',$course)->with('subcourses')->first();
     }
 }
+

@@ -42,13 +42,15 @@ class CourseController extends Controller
         $this->validate($request,[
             'course_name' => 'required',
             'price' => 'required',
-            'title_id' => 'required'
+            'title_id' => 'required',
+            'crs_thumbnail' => 'required'
         ]);
         $course = new Course;
 
         $course->course_name = $request->course_name;
         $course->price = $request->price;
         $course->title_id = $request->title_id;
+        $course->crs_thumbnail = $request->crs_thumbnail;
 
         if($course->save()){
             return response()->json(["message" => "Tambah course Berhasil"],200);
