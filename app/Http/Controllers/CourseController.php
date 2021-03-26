@@ -79,6 +79,6 @@ class CourseController extends Controller
 
     public function getCourseByTitle($title)
     {
-        return CourseTitles::where('title',$title)->with('courses')->get();
+        return CourseTitles::where('title',$title)->with(['courses'])->get();
     }
 }

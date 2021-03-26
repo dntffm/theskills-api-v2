@@ -10,6 +10,10 @@ class Course extends Model{
         return $this->belongsTo('App\CourseTitles','title_id');
     }
 
+    public function membership()
+    {
+        return $this->hasMany('App\Membership','id');
+    }
     public function subcourses()
     {
         return $this->hasMany('App\Subcourse');

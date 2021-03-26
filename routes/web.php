@@ -26,6 +26,8 @@ $router->group(['prefix' => 'api/v2'],function() use ($router) {
 	$router->get('/webinar','WebinarController@getAll');
 	$router->post('/webinar','WebinarController@store');
 	$router->post('/webinar/register','WebinarController@registerWebinar');
+	$router->post('/membership','MembershipController@store');
+	$router->get('/membership/{courseid}','MembershipController@getMembership');
 	$router->get('/storage/{filename}','StorageController@index');
 });
 
