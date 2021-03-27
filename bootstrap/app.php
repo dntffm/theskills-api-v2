@@ -23,6 +23,8 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 //$app->singleton('filesystem', function ($app) { return $app->loadComponent('filesystems', 'Illuminate\Filesystem\FilesystemServiceProvider', 'filesystem'); });
+$app->register(\Illuminate\Notifications\NotificationServiceProvider::class);
+$app->register(Illuminate\Mail\MailServiceProvider::class);
 $app->withFacades();
 
 $app->withEloquent();
@@ -60,10 +62,16 @@ $app->singleton(
 */
 $app->register(Fruitcake\Cors\CorsServiceProvider::class);
 $app->configure('cors');
-
-
 $app->configure('app');
 
+$app->configure('mail');
+
+$app->alias('mail.manager', Illuminate\Mail\MailManager::class);
+$app->alias('mail.manager', Illuminate\Contracts\Mail\Factory::class);
+
+$app->alias('mailer', Illuminate\Mail\Mailer::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +90,7 @@ $app->configure('app');
 
 $app->routeMiddleware([
     'auth' => App\Http\Middleware\Authenticate::class,
+    'verified' => App\Http\Middleware\EnsureEmailIsVerified::class,
 ]);
 
 

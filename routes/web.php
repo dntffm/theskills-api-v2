@@ -10,11 +10,19 @@
 | and give it the Closure to call when that URI is requested.
 |
 */
-
-$router->group(['prefix' => 'api/v2'],function() use ($router) {
+$router->group(["prefix" => "api/v2"],function() use ($router){
 	$router->post('/register','AuthController@register');
+	$router->post('/password/reset-request', 'RequestPasswordController@sendResetLinkEmail');
 	$router->post('/login','AuthController@login');
+	$router->post('/email/verify', ['as' => 'email.verify', 'uses' => 'AuthController@emailVerify']);
+});
+
+$router->group(['prefix' => 'api/v2','middleware' => ['auth','verified']],function() use ($router) {
 	$router->post('/logout','AuthController@logout');
+
+	$router->post('/email/request-verification', ['as' => 'email.request.verification', 'uses' => 'AuthController@emailRequestVerification']);
+	$router->post('/password/reset', [ 'as' => 'password.reset', 'uses' => 'ResetPasswordController@reset' ]);
+
 	$router->post('/course/title/create','CourseController@createTitles');
 	$router->post('/course/main/create','CourseController@createCourse');
 	$router->get('/course/{title}','CourseController@getCourseByTitle');

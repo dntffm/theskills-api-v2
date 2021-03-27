@@ -7,10 +7,12 @@ use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Lumen\Auth\Authorizable;
+use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Traits\MustVerifyEmail;
 class User extends Model implements AuthenticatableContract, AuthorizableContract,JWTSubject
 {
-    use Authenticatable, Authorizable;
+    use Authenticatable, Authorizable, MustVerifyEmail, Notifiable;
 
 
     public function getJWTIdentifier()
@@ -22,6 +24,21 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     {
         return [];
     }
+
+    protected static function boot()
+  {
+    parent::boot();
+    
+    static::saved(function ($model) {
+/**
+       * If user email have changed email verification is required
+       */
+      if( $model->isDirty('email') ) {
+        $model->setAttribute('email_verified_at', null);
+        $model->sendEmailVerificationNotification();
+      }
+});
+}
     /**
      * The attributes that are mass assignable.
      *
@@ -38,5 +55,14 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      */
     protected $hidden = [
         'password',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'email_verified_at' => 'datetime',
     ];
 }
