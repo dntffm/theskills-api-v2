@@ -17,7 +17,7 @@ $router->group(["prefix" => "api/v2"],function() use ($router){
 	$router->post('/email/verify', ['as' => 'email.verify', 'uses' => 'AuthController@emailVerify']);
 });
 
-$router->group(['prefix' => 'api/v2','middleware' => ['auth']],function() use ($router) {
+$router->group(['prefix' => 'api/v2',/* 'middleware' => ['auth'] */],function() use ($router) {
 	$router->post('/logout','AuthController@logout');
 
 	$router->post('/email/request-verification', ['as' => 'email.request.verification', 'uses' => 'AuthController@emailRequestVerification']);
