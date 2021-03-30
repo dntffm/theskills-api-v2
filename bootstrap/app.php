@@ -24,7 +24,7 @@ $app = new Laravel\Lumen\Application(
 );
 //$app->singleton('filesystem', function ($app) { return $app->loadComponent('filesystems', 'Illuminate\Filesystem\FilesystemServiceProvider', 'filesystem'); });
 $app->register(\Illuminate\Notifications\NotificationServiceProvider::class);
-$app->register(Illuminate\Mail\MailServiceProvider::class);
+/* $app->register(Illuminate\Mail\MailServiceProvider::class); */
 $app->withFacades();
 
 $app->withEloquent();
@@ -64,14 +64,14 @@ $app->register(Fruitcake\Cors\CorsServiceProvider::class);
 $app->configure('cors');
 $app->configure('app');
 
-$app->configure('mail');
+/* $app->configure('mail');
 
 $app->alias('mail.manager', Illuminate\Mail\MailManager::class);
 $app->alias('mail.manager', Illuminate\Contracts\Mail\Factory::class);
 
 $app->alias('mailer', Illuminate\Mail\Mailer::class);
 $app->alias('mailer', Illuminate\Contracts\Mail\Mailer::class);
-$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class);
+$app->alias('mailer', Illuminate\Contracts\Mail\MailQueue::class); */
 
 /*
 |--------------------------------------------------------------------------
