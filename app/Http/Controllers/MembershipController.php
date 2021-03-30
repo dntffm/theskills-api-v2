@@ -15,6 +15,10 @@ class MembershipController extends Controller
         //
     }
 
+    public function index()
+    {
+        return Membership::all();
+    }
     public function store(Request $request)
     {
         $membership = new Membership;

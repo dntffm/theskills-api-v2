@@ -35,6 +35,7 @@ $router->group(['prefix' => 'api/v2',/* 'middleware' => ['auth'] */],function() 
 	$router->post('/webinar','WebinarController@store');
 	$router->post('/webinar/register','WebinarController@registerWebinar');
 	$router->post('/membership','MembershipController@store');
+	$router->get('/membership','MembershipController@index');
 	$router->get('/membership/{courseid}','MembershipController@getMembership');
 	$router->get('/storage/{filename}','StorageController@index');
 });
