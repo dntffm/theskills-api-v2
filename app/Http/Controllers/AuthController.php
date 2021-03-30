@@ -76,7 +76,7 @@ class AuthController extends Controller
   * @param  Request  $request
   * @return Response
   */
-  public function emailRequestVerification(Request $request)
+  /* public function emailRequestVerification(Request $request)
   {
     if ( $request->user()->hasVerifiedEmail() ) {
         return response()->json('Email address is already verified.');
@@ -85,14 +85,14 @@ class AuthController extends Controller
     $request->user()->sendEmailVerificationNotification();
     
     return response()->json('Email request verification sent to ');
-  }
+  } */
 /**
   * Verify an email using email and token from email.
   *
   * @param  Request  $request
   * @return Response
   */
-  public function emailVerify(Request $request)
+  /* public function emailVerify(Request $request)
   {
     $this->validate($request, [
       'token' => 'required|string',
@@ -108,5 +108,5 @@ if ( ! $request->user() ) {
     }
 $request->user()->markEmailAsVerified();
 return response()->json('Email address '. $request->user()->email.' successfully verified.');
-  }
+  } */
 }
