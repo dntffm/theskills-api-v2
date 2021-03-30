@@ -12,7 +12,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use App\Traits\MustVerifyEmail;
 class User extends Model implements AuthenticatableContract, AuthorizableContract,JWTSubject
 {
-    use Authenticatable, Authorizable, MustVerifyEmail, Notifiable;
+    use Authenticatable, Authorizable/* MustVerifyEmail, Notifiable */;
 
 
     public function getJWTIdentifier()
@@ -25,20 +25,20 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
         return [];
     }
 
-    protected static function boot()
-  {
+    /* protected static function boot()
+    {
     parent::boot();
     
-    static::saved(function ($model) {
+    static::saved(function ($model) { */
 /**
        * If user email have changed email verification is required
        */
-      if( $model->isDirty('email') ) {
+      /* if( $model->isDirty('email') ) {
         $model->setAttribute('email_verified_at', null);
         $model->sendEmailVerificationNotification();
       }
-});
-}
+    });
+    } */
     /**
      * The attributes that are mass assignable.
      *
