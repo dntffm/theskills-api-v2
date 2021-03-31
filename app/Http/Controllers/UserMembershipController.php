@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use App\UserMembership;
 use Illuminate\Http\Request;
-class ExampleController extends Controller
+class UserMembershipController extends Controller
 {
     /**
      * Create a new controller instance.
