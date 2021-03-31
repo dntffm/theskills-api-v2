@@ -15,7 +15,7 @@ class AddCourseIdUserMembershipTable extends Migration
     {
         Schema::table('user_membership', function (Blueprint $table) {
             $table->unsignedBigInteger('course_id');
-            $table->foreign('course_id')->references('courses')->on('id');
+            $table->foreign('course_id')->references('id')->on('courses');
         });
     }
 
