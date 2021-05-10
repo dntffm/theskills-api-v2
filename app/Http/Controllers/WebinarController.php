@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Webinar;
+use App\WebinarParticipant;
 use Illuminate\Http\Request;
 class WebinarController extends Controller
 {
@@ -43,6 +44,19 @@ class WebinarController extends Controller
             'webinar_id' => 'required'
         ]);
 
-        
+        $webinarparticipant = new WebinarParticipant;
+        $webinarparticipant->user_id = $request->user_id;
+        $webinarparticipant->webinar_id = $request->webinar_id;
+
+        if($webinarparticipant->save()) 
+        {
+            return response()->json([
+                "message" => "Pendaftaran webinar berhasil"
+            ], 200);
+        }
+
+        return response()->json([
+            "message" => "Pendaftaran webinar gagal"
+        ], 400);
     }
 }
