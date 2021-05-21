@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Webinar;
 use App\WebinarParticipant;
 use Illuminate\Http\Request;
+use DB;
 class WebinarController extends Controller
 {
     /**
@@ -58,5 +59,11 @@ class WebinarController extends Controller
         return response()->json([
             "message" => "Pendaftaran webinar gagal"
         ], 400);
+    }
+
+    public function mywebinar($userid){
+        return DB::table('webinar_participants')
+                ->where('user_id', $userid)
+                ->get();
     }
 }
