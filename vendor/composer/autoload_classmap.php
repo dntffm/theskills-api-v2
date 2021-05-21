@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\MinicourseController' => $baseDir . '/app/Http/Controllers/MinicourseController.php',
     'App\\Http\\Controllers\\StorageController' => $baseDir . '/app/Http/Controllers/StorageController.php',
     'App\\Http\\Controllers\\SubcourseController' => $baseDir . '/app/Http/Controllers/SubcourseController.php',
+    'App\\Http\\Controllers\\UserMembershipController' => $baseDir . '/app/Http/Controllers/UserMembershipController.php',
     'App\\Http\\Controllers\\WebinarController' => $baseDir . '/app/Http/Controllers/WebinarController.php',
     'App\\Http\\Middleware\\Authenticate' => $baseDir . '/app/Http/Middleware/Authenticate.php',
     'App\\Http\\Middleware\\EnsureEmailIsVerified' => $baseDir . '/app/Http/Middleware/EnsureEmailIsVerified.php',

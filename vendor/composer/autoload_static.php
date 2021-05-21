@@ -535,6 +535,7 @@ class ComposerStaticInit3288292384c75c49fc4faf111304fd39
         'App\\Http\\Controllers\\MinicourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/MinicourseController.php',
         'App\\Http\\Controllers\\StorageController' => __DIR__ . '/../..' . '/app/Http/Controllers/StorageController.php',
         'App\\Http\\Controllers\\SubcourseController' => __DIR__ . '/../..' . '/app/Http/Controllers/SubcourseController.php',
+        'App\\Http\\Controllers\\UserMembershipController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserMembershipController.php',
         'App\\Http\\Controllers\\WebinarController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebinarController.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EnsureEmailIsVerified' => __DIR__ . '/../..' . '/app/Http/Middleware/EnsureEmailIsVerified.php',
