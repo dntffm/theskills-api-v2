@@ -32,6 +32,7 @@ $router->group(['prefix' => 'api/v2',/* 'middleware' => ['auth'] */],function() 
 	$router->get('/minicourse/{courseid}','MinicourseController@showByCourse');
 	$router->get('/minicourse/id/{id}','MinicourseController@showById');
 	$router->get('/webinar','WebinarController@getAll');
+	$router->get('/webinar/{id}','WebinarController@getById');
 	$router->get('/webinar/mywebinar/{userid}','WebinarController@mywebinar');
 	$router->post('/webinar','WebinarController@store');
 	$router->post('/webinar/register','WebinarController@registerWebinar');
