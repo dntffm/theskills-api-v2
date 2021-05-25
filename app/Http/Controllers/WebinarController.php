@@ -19,7 +19,7 @@ class WebinarController extends Controller
 
     public function getAll()
     {
-        return Webinar::select('*')->orderBy('status')->get();
+        return Webinar::select('*')->orderBy('status','desc')->get();
     }
 
     public function getById($id)
