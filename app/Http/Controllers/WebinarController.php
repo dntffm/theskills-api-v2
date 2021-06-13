@@ -70,6 +70,7 @@ class WebinarController extends Controller
         $my = DB:: table('webinar_participants')
                 ->select(DB::raw('count(*) as count,webinar_id'))
                 ->where('user_id','=',$userid)
+                ->where('approval_status','=','yes')
                 ->groupBy('webinar_id');
         $webinars = DB::table('webinars')
                     ->joinSub($my, 'webinar_participants', function($join) {
